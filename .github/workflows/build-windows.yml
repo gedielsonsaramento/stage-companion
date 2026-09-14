@@ -15,10 +15,14 @@ jobs:
         with:
           go-version: '1.24.x'
 
-      - name: Expand complete source archive
+      - name: Reconstruct complete source archive
         shell: powershell
         run: |
-          Expand-Archive -Path dist\08G-C3\StageCompanion-08G-C3-Codigo-Fonte.zip -DestinationPath src -Force
+          $parts = Get-ChildItem .bootstrap\source.b64.part* | Sort-Object Name
+          if ($parts.Count -ne 9) { throw "Expected 9 source chunks, found $($parts.Count)." }
+          $b64 = ($parts | ForEach-Object { (Get-Content $_.FullName -Raw).Trim() }) -join ''
+          [IO.File]::WriteAllBytes('source.zip', [Convert]::FromBase64String($b64))
+          Expand-Archive -Path source.zip -DestinationPath src -Force
 
       - name: Build Windows server
         shell: cmd
