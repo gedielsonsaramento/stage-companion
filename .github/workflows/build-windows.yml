@@ -14,13 +14,12 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.24.x'
+          cache: false
 
       - name: Reconstruct complete source archive
         shell: powershell
         run: |
-          $parts = Get-ChildItem .bootstrap\source.b64.part* | Sort-Object Name
-          if ($parts.Count -ne 9) { throw "Expected 9 source chunks, found $($parts.Count)." }
-          $b64 = ($parts | ForEach-Object { (Get-Content $_.FullName -Raw).Trim() }) -join ''
+          $b64 = (Get-Content '.bootstrap\source.zip.b64' -Raw) -replace '\s',''
           [IO.File]::WriteAllBytes('source.zip', [Convert]::FromBase64String($b64))
           Expand-Archive -Path source.zip -DestinationPath src -Force
 
