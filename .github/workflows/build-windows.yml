@@ -10,22 +10,48 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-go@v5
         with:
           go-version: '1.24.x'
-      - name: Build server
-        shell: cmd
-        run: BUILD-WINDOWS.cmd
-      - name: Package plugin
+
+      - name: Expand complete source archive
         shell: powershell
-        run: Compress-Archive -Path plugin\* -DestinationPath StageCompanion-DEV-Teste08G-C3.zip -Force
-      - name: Upload artifacts
+        run: |
+          Expand-Archive -Path dist\08G-C3\StageCompanion-08G-C3-Codigo-Fonte.zip -DestinationPath src -Force
+
+      - name: Build Windows server
+        shell: cmd
+        run: |
+          cd src\server
+          set GOOS=windows
+          set GOARCH=amd64
+          set CGO_ENABLED=0
+          go build -trimpath -ldflags="-s -w -H=windowsgui" -o "..\..\StageCompanion-Servidor-08G-R9.exe" main.go
+
+      - name: Package Spresenter plugin
+        shell: powershell
+        run: |
+          Compress-Archive -Path src\plugin\* -DestinationPath StageCompanion-DEV-Teste08G-C3.zip -Force
+
+      - name: Copy return theme
+        shell: powershell
+        run: |
+          Copy-Item src\Retorno-StageCompanion-08G.spresenter-theme.json Retorno-StageCompanion-08G-C3.spresenter-theme.json -Force
+
+      - name: Run plugin tests
+        shell: powershell
+        run: |
+          node src\tests\plugin.cjs
+          node src\tests\static-c3.cjs
+
+      - name: Upload installable artifacts
         uses: actions/upload-artifact@v4
         with:
           name: StageCompanion-08G-C3
           path: |
             StageCompanion-Servidor-08G-R9.exe
             StageCompanion-DEV-Teste08G-C3.zip
-            themes\Retorno-StageCompanion-08G-C3.spresenter-theme.json
+            Retorno-StageCompanion-08G-C3.spresenter-theme.json
             INSTALL.md
             CHANGELOG.md
