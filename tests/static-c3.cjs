@@ -1,0 +1,11 @@
+const fs=require('fs'),assert=require('assert'),path=require('path');
+const root=path.resolve(__dirname,'..');
+const h=fs.readFileSync(path.join(root,'server/app/index.html'),'utf8');
+['strobeAlert','strobeVehicle','strobeMessage'].forEach(id=>assert(h.includes('id="'+id+'"')));
+assert(h.includes("flash:strobe.vehicle"));assert(h.includes("flash:strobe.message"));assert(h.includes("flash:strobe.alert||"));
+assert(h.includes("if(!onHandle&&sheet.scrollTop>0)return"),'swipe can start on a field when sheet is at top');
+assert(h.includes("state={draftVisitors:[],draftWorship:[]},selectedAlert='',strobe={alert:false,vehicle:true,message:false}"));
+const u=fs.readFileSync(path.join(root,'plugin/dist/ui/index.html'),'utf8');
+['strobeAlert','strobeVehicle','strobeMessage'].forEach(id=>assert(u.includes('id="'+id+'"')));
+assert(u.includes("flash:strobe.vehicle"));assert(u.includes("flash:strobe.message"));
+console.log('PASS C3 static: PWA/plugin strobe controls and swipe markers present.');
