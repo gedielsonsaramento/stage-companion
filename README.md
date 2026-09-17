@@ -66,6 +66,8 @@ Guia detalhado: **[docs/INSTALLATION.md](docs/INSTALLATION.md)**.
 | [docs/INSTALLATION.md](docs/INSTALLATION.md) | Instalação e atualização |
 | [docs/USER-GUIDE.md](docs/USER-GUIDE.md) | Uso durante o culto |
 | [docs/INTERFACE.md](docs/INTERFACE.md) | Interface atual |
+| [docs/PLUGIN.md](docs/PLUGIN.md) | Plugin Spresenter, estado, actions e live elements |
+| [docs/SERVER.md](docs/SERVER.md) | Servidor Windows, autostart, bandeja e configuração |
 | [docs/PWA.md](docs/PWA.md) | PWA e navegação móvel |
 | [docs/RETURN-THEME.md](docs/RETURN-THEME.md) | Tema e layout do Retorno |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Arquitetura técnica |
