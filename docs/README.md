@@ -19,6 +19,8 @@ Este diretório reúne a documentação funcional e técnica do **Stage Companio
 | [INSTALLATION.md](INSTALLATION.md) | Instalação do plugin, servidor, tema, API e PWA |
 | [USER-GUIDE.md](USER-GUIDE.md) | Operação diária pelo plugin e pela PWA |
 | [INTERFACE.md](INTERFACE.md) | Organização visual atual do plugin, Retorno e PWA |
+| [PLUGIN.md](PLUGIN.md) | Funcionamento técnico do plugin Spresenter |
+| [SERVER.md](SERVER.md) | Executável Windows, autostart, bandeja e configuração |
 | [PWA.md](PWA.md) | Interface móvel, navegação, swipe e comportamento local |
 | [RETURN-THEME.md](RETURN-THEME.md) | Layout e comportamento da tela de Retorno |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Arquitetura, componentes e comunicação interna |
