@@ -18,7 +18,8 @@ Este diretório reúne a documentação funcional e técnica do **Stage Companio
 | [OVERVIEW.md](OVERVIEW.md) | Visão geral, objetivos, fluxos e recursos |
 | [INSTALLATION.md](INSTALLATION.md) | Instalação do plugin, servidor, tema, API e PWA |
 | [USER-GUIDE.md](USER-GUIDE.md) | Operação diária pelo plugin e pela PWA |
-| [PWA.md](PWA.md) | Interface móvel, navegação, swipe e comportamento offline/local |
+| [INTERFACE.md](INTERFACE.md) | Organização visual atual do plugin, Retorno e PWA |
+| [PWA.md](PWA.md) | Interface móvel, navegação, swipe e comportamento local |
 | [RETURN-THEME.md](RETURN-THEME.md) | Layout e comportamento da tela de Retorno |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Arquitetura, componentes e comunicação interna |
 | [API-SECURITY.md](API-SECURITY.md) | Chave da API, permissões, rede e armazenamento seguro |
