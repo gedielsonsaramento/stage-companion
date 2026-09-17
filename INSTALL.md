@@ -1,20 +1,52 @@
 # INSTALL — Stage Companion 08G-C3
 
-1. Extraia o pacote no PC de projeção.
-2. No Spresenter, **atualize** o plugin com `StageCompanion-DEV-Teste08G-C3.zip`. Não desinstale o anterior.
-3. Importe `Retorno-StageCompanion-08G-C3.spresenter-theme.json` e aplique **Retorno — Stage Companion 08G C3** em cada saída de Retorno usada (Stage/Preview e HTML podem ser independentes).
-4. Execute `StageCompanion-Servidor-08G-R9.exe` no mesmo usuário do Windows. O servidor reaproveita a configuração/token existentes.
-5. Atualize a PWA no celular uma vez.
-6. No plugin, clique **SINCRONIZAR** e confirme o tempo de pisca (30 s por padrão).
+Guia rápido para instalação/atualização. Para instruções completas, consulte **[docs/INSTALLATION.md](docs/INSTALLATION.md)**.
+
+## Atualização de uma instalação existente
+
+1. No Spresenter, **atualize** o plugin com `StageCompanion-DEV-Teste08G-C3.zip`. Não desinstale a versão anterior apenas para atualizar.
+2. Importe `Retorno-StageCompanion-08G-C3.spresenter-theme.json`.
+3. Aplique **Retorno — Stage Companion 08G C3** em **cada saída de Retorno** usada. Stage/Preview, saída HTML e outras saídas podem ter tema próprio.
+4. Execute `StageCompanion-Servidor-08G-R9.exe` no mesmo usuário do Windows usado anteriormente.
+5. Recarregue a PWA no celular.
+6. No plugin, clique **SINCRONIZAR**.
+
+A atualização normal deve reaproveitar configuração e token já protegidos no Windows.
+
+## Instalação nova
+
+Além dos passos acima, crie no Spresenter uma chave de API com escopo:
+
+```text
+plugins:invoke
+```
+
+Configuração padrão do servidor:
+
+```text
+Host: 127.0.0.1
+Porta da API: 5050
+```
+
+Depois de salvar a configuração, abra a aba **Voluntários** e confirme que aparecem status conectado, IP, porta, QR Code e URL da PWA.
 
 ## Teste recomendado
 
-- Projete um vídeo: o vídeo deve aparecer no Retorno, não apenas um bloco preto.
-- Com Visitantes/Louvor publicados, inicie uma apresentação: as duas listas devem recolher; ao encerrar, devem voltar.
-- Envie Alerta/Mensagem com e sem o botão vermelho ⚡; somente com estrobo deve piscar pelo tempo configurado.
-- Em Veículo, confira: **PLACA → MODELO/COR → PROBLEMA**. Veículo começa com estrobo ligado, mas pode ser desligado antes do envio.
-- Teste OCULTAR FAIXA e MOSTRAR FAIXA; os dados publicados devem ser preservados.
+- Envie uma lista de Visitantes.
+- Envie uma lista de Oportunidade de Louvor.
+- Projete conteúdo nativo e confirme que as listas recolhem e voltam depois.
+- Projete um vídeo e confirme que o Retorno mostra o vídeo em vez de apenas um bloco preto.
+- Envie Alerta/Mensagem com e sem o botão vermelho ⚡.
+- Em Veículo, confira **PLACA → MODELO/COR → PROBLEMA**.
+- Teste **OCULTAR FAIXA** e **MOSTRAR FAIXA**; os dados publicados devem ser preservados.
+- Reinicie o Windows e confirme o autostart do servidor.
 
-## API
+## Segurança
 
-Não gere outra chave em uma atualização normal. Para instalação nova, crie no Spresenter uma chave com escopo `plugins:invoke`, configure host `127.0.0.1` e porta `5050` no servidor. A chave fica protegida no Windows e não entra no QR.
+A chave da API fica no PC e não entra no QR Code. Não publique a chave em screenshots, issues ou commits.
+
+Mais detalhes:
+
+- [Guia completo de instalação](docs/INSTALLATION.md)
+- [API e segurança](docs/API-SECURITY.md)
+- [Solução de problemas](docs/TROUBLESHOOTING.md)
