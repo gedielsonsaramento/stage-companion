@@ -19,3 +19,8 @@
 - Base visual C2/08F preservada.
 - `main-video` mantém o layout e passa a aceitar `video` e `backgroundVideo`.
 - Novo campo `sc-vehicle-problem-text`; demais elementos Stage Companion mantidos.
+
+## Documentação do repositório
+- README principal ampliado com arquitetura, instalação rápida, segurança e índice de documentação.
+- Guias separados para instalação, operação, interface, plugin, servidor, PWA, tema de Retorno, arquitetura, API/segurança, desenvolvimento e troubleshooting.
+- Inclusão de roadmap, política de segurança e guia de contribuição.
