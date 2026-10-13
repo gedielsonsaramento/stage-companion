@@ -1,26 +1,31 @@
-# CHANGELOG — 08G-C3
+# Changelog
 
-## Plugin 0.3.56
-- Observação de `live`/`state` na saída 0 para detectar projeção nativa.
-- Reparo do `main-video.src` com `/assets/<guid>` durante vídeo; restauração para `slide` ao terminar.
-- Visitantes e Oportunidade de Louvor recolhem automaticamente enquanto conteúdo nativo está projetado e retornam depois.
-- Alertas/Veículos/Mensagens permanecem disponíveis durante projeção.
-- Estrobo opcional por envio para Alerta, Veículo e Mensagem; duração usa `flashSeconds` do plugin.
-- Layout de Veículo: placa, modelo/cor, problema; migração automática do estado C2.
-- Novo elemento `sc-vehicle-problem-text`.
+## R18.6-HF5I LOCAL — candidata em validação
 
-## Servidor/PWA 0.8G-R9
-- Botão ⚡ vermelho de estrobo nas três telas de ação.
-- Veículo inicia com estrobo ligado por compatibilidade; Alerta e Mensagem iniciam desligados.
-- Swipe e preservação de rascunhos mantidos.
-- Configuração/token/autostart/tray mantidos.
+### Plugin 0.3.90
 
-## Tema 08G-C3
-- Base visual C2/08F preservada.
-- `main-video` mantém o layout e passa a aceitar `video` e `backgroundVideo`.
-- Novo campo `sc-vehicle-problem-text`; demais elementos Stage Companion mantidos.
+- Integração da Setlist revisada para Oportunidade, Harpa e Seja Bem-vindo.
+- `PREPARAR "SEJA BEM-VINDO"` usa inclusão direta no grupo da Setlist.
+- Proteção contra reenvio cego enquanto o snapshot da Setlist estiver atrasado.
+- Reconciliação da Oportunidade por evidência do item já inserido.
+- Proteções de idempotência contra grupos e hinos duplicados.
+- Visitantes mantêm reaplicação/retry no Retorno.
+- Permissões necessárias para leitura de assets e leitura/escrita de Setlist.
 
-## Documentação do repositório
-- README principal ampliado com arquitetura, instalação rápida, segurança e índice de documentação.
-- Guias separados para instalação, operação, interface, plugin, servidor, PWA, tema de Retorno, arquitetura, API/segurança, desenvolvimento e troubleshooting.
-- Inclusão de roadmap, política de segurança e guia de contribuição.
+### Servidor Windows / PWA local 0.8G-R18.6-HF5C
+
+- Executável Windows em modo GUI, sem janela preta de console.
+- Autostart e reconexão preservados.
+- Reaplicação de Visitantes, Oportunidade e Harpa após início/reconexão.
+- PWA local mantida como caminho padrão desta edição.
+- Não depende de Termux, Samsung, domínio ou IP público.
+
+### Tema
+
+- Tema de Retorno **R18.6-HF1** mantido nesta candidata.
+
+### Distribuição no GitHub
+
+- Criada edição **LOCAL** como caminho principal para uso comunitário.
+- Código completo remoto/Internet permanece fora do fluxo padrão.
+- HF5I publicada inicialmente como candidata em branch/PR de validação; promoção para a árvore principal somente depois do teste de campo.
