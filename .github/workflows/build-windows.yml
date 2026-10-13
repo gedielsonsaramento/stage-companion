@@ -1,13 +1,75 @@
-name: Build Stage Companion
+name: Build Stage Companion Local Candidate
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - '.local-src/**'
+      - 'README.md'
+      - 'INSTALL.md'
+      - 'CHANGELOG.md'
+      - '.github/workflows/build-windows.yml'
 
 jobs:
-  build:
+  build-local-candidate:
     runs-on: windows-latest
+
     steps:
       - uses: actions/checkout@v4
-      - name: Source restoration in progress
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23.x'
+
+      - name: Reconstruir código da candidata
         shell: powershell
-        run: Write-Host 'Stage Companion source tree is being restored. Run manually after the next repository update.'
+        run: |
+          $parts = Get-ChildItem ".local-src\source.b64.part*" | Sort-Object Name
+          if (-not $parts -or $parts.Count -ne 10) {
+            throw "Snapshot incompleto: esperado 10 partes em .local-src"
+          }
+          $b64 = ($parts | ForEach-Object { Get-Content $_.FullName -Raw }) -join ""
+          [IO.File]::WriteAllBytes("$PWD\local-source.zip", [Convert]::FromBase64String($b64))
+          Expand-Archive "$PWD\local-source.zip" "$PWD\candidate" -Force
+
+      - name: Validar plugin e tema
+        shell: powershell
+        run: |
+          node --check candidate\plugin\dist\code.js
+          Get-Content candidate\plugin\manifest.json | ConvertFrom-Json | Out-Null
+          Get-Content candidate\themes\Retorno-StageCompanion-R18.6-HF1.spresenter-theme.json | ConvertFrom-Json | Out-Null
+          $manifest = Get-Content candidate\plugin\manifest.json | ConvertFrom-Json
+          if ($manifest.version -ne "0.3.90") {
+            throw "Versao inesperada do plugin: $($manifest.version)"
+          }
+
+      - name: Compilar servidor Windows
+        shell: powershell
+        run: |
+          Push-Location candidate\server
+          go build -o ..\..\StageCompanion-Servidor-08G-R18.6-HF5C.exe main.go
+          Pop-Location
+
+      - name: Empacotar plugin
+        shell: powershell
+        run: |
+          Compress-Archive -Path candidate\plugin\* -DestinationPath StageCompanion-Plugin-R18.6-HF5I.zip -Force
+
+      - name: Montar pacote local
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force -Path package | Out-Null
+          Copy-Item StageCompanion-Servidor-08G-R18.6-HF5C.exe package\
+          Copy-Item StageCompanion-Plugin-R18.6-HF5I.zip package\
+          Copy-Item candidate\themes\Retorno-StageCompanion-R18.6-HF1.spresenter-theme.json package\
+          Copy-Item candidate\INSTALL.md package\
+          Copy-Item candidate\CHANGELOG.md package\
+          Compress-Archive -Path package\* -DestinationPath StageCompanion-R18.6-HF5I-LOCAL.zip -Force
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: StageCompanion-R18.6-HF5I-LOCAL
+          path: |
+            StageCompanion-R18.6-HF5I-LOCAL.zip
+            StageCompanion-Servidor-08G-R18.6-HF5C.exe
+            StageCompanion-Plugin-R18.6-HF5I.zip

@@ -1,52 +1,46 @@
-# INSTALL — Stage Companion 08G-C3
+# Instalação — Stage Companion R18.6-HF5I LOCAL
 
-Guia rápido para instalação/atualização. Para instruções completas, consulte **[docs/INSTALLATION.md](docs/INSTALLATION.md)**.
+Esta edição usa somente **S-Present + plugin + PC Windows + rede local**.
 
-## Atualização de uma instalação existente
+## Requisitos
 
-1. No Spresenter, **atualize** o plugin com `StageCompanion-DEV-Teste08G-C3.zip`. Não desinstale a versão anterior apenas para atualizar.
-2. Importe `Retorno-StageCompanion-08G-C3.spresenter-theme.json`.
-3. Aplique **Retorno — Stage Companion 08G C3** em **cada saída de Retorno** usada. Stage/Preview, saída HTML e outras saídas podem ter tema próprio.
-4. Execute `StageCompanion-Servidor-08G-R9.exe` no mesmo usuário do Windows usado anteriormente.
-5. Recarregue a PWA no celular.
-6. No plugin, clique **SINCRONIZAR**.
+- PC Windows com S-Present.
+- Celular/tablet e PC na mesma rede local, caso a PWA seja usada.
+- Plugin Stage Companion.
+- Tema de Retorno, caso a saída de palco seja usada.
 
-A atualização normal deve reaproveitar configuração e token já protegidos no Windows.
+**Não é necessário:** Termux, Samsung dedicado, domínio, IP público fixo ou servidor externo.
 
-## Instalação nova
+## Instalação recomendada
 
-Além dos passos acima, crie no Spresenter uma chave de API com escopo:
+1. Baixe o artefato **StageCompanion-R18.6-HF5I-LOCAL** gerado pelo GitHub Actions desta candidata.
+2. No S-Present abra **Configurações → Plugins → Instalar (.zip/pasta)** e instale o ZIP do plugin.
+3. Confirme **Stage Companion DEV v0.3.90**.
+4. Importe o tema **Retorno-StageCompanion-R18.6-HF1.spresenter-theme.json** e aplique-o à saída de Retorno.
+5. Execute **StageCompanion-Servidor-08G-R18.6-HF5C.exe** no PC do S-Present.
+6. Configure a API local do S-Present no servidor Windows. Não publique a chave.
+7. Na aba **Voluntários**, use o endereço/QR local no celular conectado à mesma rede.
+
+Valores locais normalmente usados pelo servidor:
 
 ```text
-plugins:invoke
-```
-
-Configuração padrão do servidor:
-
-```text
-Host: 127.0.0.1
+Host da API: 127.0.0.1
 Porta da API: 5050
 ```
 
-Depois de salvar a configuração, abra a aba **Voluntários** e confirme que aparecem status conectado, IP, porta, QR Code e URL da PWA.
+A PWA local é fornecida pelo próprio EXE, normalmente usando uma porta entre **8090 e 8100**.
 
-## Teste recomendado
+## Teste da candidata HF5I
 
-- Envie uma lista de Visitantes.
-- Envie uma lista de Oportunidade de Louvor.
-- Projete conteúdo nativo e confirme que as listas recolhem e voltam depois.
-- Projete um vídeo e confirme que o Retorno mostra o vídeo em vez de apenas um bloco preto.
-- Envie Alerta/Mensagem com e sem o botão vermelho ⚡.
-- Em Veículo, confira **PLACA → MODELO/COR → PROBLEMA**.
-- Teste **OCULTAR FAIXA** e **MOSTRAR FAIXA**; os dados publicados devem ser preservados.
-- Reinicie o Windows e confirme o autostart do servidor.
+1. Cadastre 3 visitantes e confirme plugin + Retorno.
+2. Cadastre **uma única** Oportunidade com Cantor, Hino e Artista.
+3. Confirme que o hino entra uma vez e recebe confirmação sem depender de um segundo cadastro.
+4. Teste a Harpa Cristã.
+5. Remova previamente o grupo de teste `Seja bem-vindo`, se necessário.
+6. Clique uma vez em **PREPARAR "SEJA BEM-VINDO"**: esperado **1 grupo + 1 banner**, sem projeção.
+7. Clique PREPARAR novamente: nada deve duplicar.
+8. Clique **APRESENTAR**: o banner deve ser projetado sem criar nova cópia.
 
-## Segurança
+## Observação sobre esta branch
 
-A chave da API fica no PC e não entra no QR Code. Não publique a chave em screenshots, issues ou commits.
-
-Mais detalhes:
-
-- [Guia completo de instalação](docs/INSTALLATION.md)
-- [API e segurança](docs/API-SECURITY.md)
-- [Solução de problemas](docs/TROUBLESHOOTING.md)
+A HF5I está em validação. O workflow reconstrói a candidata a partir do snapshot em `.local-src/` e gera os artefatos de teste. A branch principal permanece protegida até a validação em campo.
