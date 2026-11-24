@@ -17,13 +17,18 @@ Preservar o ZIP 0.4.37 e aplicar testes de regressão antes de cada nova candida
 | --- | --- | --- | --- |
 | 1 | RT Músicos (tema JSON, separado do plugin) | Validar a caixa da Harpa compacta, exibindo números dinâmicos sem encobrir as estrofes. | Tema preparado; falta teste no Spresenter real |
 | 2 | **Painel** (primeira aba do plugin) | Encolher cabeçalho “Stage Companion” e versão/build; mostrar algo como `SC · 0.4.37`, mantendo versão completa no diagnóstico. Preservar área útil e funções. | Pedido confirmado; não implementado nesta documentação |
-| 3 | **Alertas/Mensagens** | Conferir e refinar organização da **lista de mensagens pré-programadas e alertas**, edição, salvamento e usabilidade dos atalhos. A documentação histórica descreve um item por linha e botão `SALVAR LISTAS`; o resultado real na 0.4.37 precisa de revisão, sem supor bug. | Revisão pendente |
+| 3 | **Alertas/Mensagens** | Além dos avisos atuais, criar **seção exclusiva “Mensagens para RT Músicos”** na mesma aba, com modelos, variáveis, texto livre, Enviar/Retirar/Limpar independentes, contagem regressiva e estrobo. [Especificação](AVISOS-RT-MUSICOS-2026-11-24.md). | Requisito confirmado; implementação pendente |
 | 4 | **Chat / Links** | Corrigir e testar visualização e download de vídeos, animação do clipe, estados dos botões, anexos e feedback de envio/recebimento. | Testes pendentes |
 | 5 | **Personalização** | Revisar densidade e hierarquia dos controles e manter duração/configuração do pisca funcional; evitar regressão do estrobo. | Revisão visual pendente; pisca aprovado |
 | 6 | **Voluntários** | Distinguir endereço local, estado de conexão, QR e configuração de servidor remoto; mostrar avisos claros se remoto não estiver configurado. | Planejamento |
 | 7 | PWA local / EXE Windows | Harmonizar interface local com PWA pública, conferir recarregamento/cache e fluxo de anexos, sem presumir que a atualização do servidor remoto atualiza a PWA local. | Validação pendente |
-| 8 | RT Músicos — avisos exclusivos | Projetar e testar os avisos específicos após a Harpa compacta ser validada. | Planejamento |
+| 8 | RT Músicos — área visual de avisos | Preparar os elementos do **tema** para as mensagens da aba Alertas/Mensagens e validar que não cobrem as duas estrofes nem a Harpa compacta. | Layout e validação em campo pendentes |
 
+
+
+## Mensagens exclusivas para RT Músicos
+
+**Decisão de 24/11/2026:** a área exclusiva ficará **dentro da aba Alertas/Mensagens**, não em nova aba principal. Mensagens pré-programadas, envio, retirada, limpeza, estrobo e timer terão destino exclusivo **RT Músicos**, preservando o retorno do pastor. A documentação de contrato, exemplos de mensagens e testes está em [AVISOS-RT-MUSICOS-2026-11-24.md](AVISOS-RT-MUSICOS-2026-11-24.md). **Ainda não implementado na 0.4.37.**
 
 ## Regra de retirada da Harpa nos dois retornos — validação pendente
 
