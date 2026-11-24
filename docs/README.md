@@ -2,6 +2,8 @@
 
 Este diretório reúne a documentação funcional e técnica do **Stage Companion**, integração criada para o Spresenter com foco em comunicação entre recepção/portaria e a tela de retorno do palco.
 
+> **Referência funcional mais recente (24/11/2026):** [BASELINE-APROVADA-2026-11-24.md](BASELINE-APROVADA-2026-11-24.md). A base operacional **0.4.37 — HF5-RC4-UI4-HF3** tem reordenação física de hinos (Oportunidade e Harpa) e pisca vermelho dos botões **aprovados em campo**. O código do repositório abaixo ainda representa a revisão histórica **0.3.56**; não o utilize como base para novas correções sem recuperar a 0.4.37 aprovada.
+
 ## Versão documentada
 
 - **Revisão do projeto:** 08G-C3
