@@ -52,3 +52,4 @@ O Stage Companion não substitui o Retorno nativo do Spresenter. Ele acrescenta 
 - [**Baseline aprovada 0.4.37**](BASELINE-APROVADA-2026-11-24.md): funções protegidas e regressão obrigatória.
 - [**Plano de interface e pendências de design**](PLANO-UI-PENDENCIAS-2026-11-24.md): ordem das melhorias em Painel, Mensagens, Chat/Links, Personalização e Voluntários.
 - [**Modo local e opção online futura**](MODOS-LOCAL-ONLINE.md): uso na LAN, requisitos da publicação remota e campos propostos (ainda não implementados).
+- [**Tempo de projeto — registro em 24/11/2026**](HISTORICO-TEMPO-DE-PROJETO-2026-11-24.md): 78 dias informados pelo responsável, com ressalva sobre datas e sem inventar horas de trabalho.
