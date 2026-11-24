@@ -6,6 +6,9 @@ A solução combina **plugin Spresenter + servidor Windows + PWA para celular + 
 
 > **Estado:** desenvolvimento/teste. A revisão atual possui testes automatizados, mas ainda deve ser validada em uso real antes de ser tratada como release estável para a comunidade.
 
+
+> **Importante (24/11/2026):** este GitHub ainda apresenta o código **histórico 08G-C3 / plugin 0.3.56**. A base **0.4.37** testada em campo está catalogada, mas **não deve ser presumida neste fonte**. Veja [baseline aprovada](docs/BASELINE-APROVADA-2026-11-24.md), [pendências de interface](docs/PLANO-UI-PENDENCIAS-2026-11-24.md) e [modos local/online](docs/MODOS-LOCAL-ONLINE.md).
+
 ## Versão atual
 
 | Componente | Versão |
