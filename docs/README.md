@@ -46,3 +46,9 @@ A revisão 08G-C3 ainda é tratada como **versão de desenvolvimento/teste**. O 
 ## Princípio do projeto
 
 O Stage Companion não substitui o Retorno nativo do Spresenter. Ele acrescenta elementos próprios ao tema de Retorno e utiliza as APIs do Spresenter para atualizar esses elementos em tempo real, preservando relógio, timer, vídeo, slides, letras, versículos e demais elementos nativos.
+
+## Acompanhamento das próximas revisões
+
+- [**Baseline aprovada 0.4.37**](BASELINE-APROVADA-2026-11-24.md): funções protegidas e regressão obrigatória.
+- [**Plano de interface e pendências de design**](PLANO-UI-PENDENCIAS-2026-11-24.md): ordem das melhorias em Painel, Mensagens, Chat/Links, Personalização e Voluntários.
+- [**Modo local e opção online futura**](MODOS-LOCAL-ONLINE.md): uso na LAN, requisitos da publicação remota e campos propostos (ainda não implementados).
