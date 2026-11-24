@@ -24,7 +24,7 @@ Preservar o ZIP 0.4.37 e aplicar testes de regressão antes de cada nova candida
 | 7 | PWA local / EXE Windows | Harmonizar interface local com PWA pública, conferir recarregamento/cache e fluxo de anexos, sem presumir que a atualização do servidor remoto atualiza a PWA local. | Validação pendente |
 | 8 | RT Músicos — área visual de avisos | Preparar os elementos do **tema** para as mensagens da aba Alertas/Mensagens e validar que não cobrem as duas estrofes nem a Harpa compacta. | Layout e validação em campo pendentes |
 
-
+| 9 | **PWA Playback — controle de mídia** | Identificar um cliente PWA autorizado como **Playback** e controlar play/pause/retomar/parar de músicas associadas e outras mídias elegíveis, com confirmação real e limitações YouTube/autoplay. [Especificação](CONTROLE-MIDIA-PWA-PLAYBACK-2026-11-24.md). | Proposta documentada; implementação pendente |
 
 ## Mensagens exclusivas para RT Músicos
 
