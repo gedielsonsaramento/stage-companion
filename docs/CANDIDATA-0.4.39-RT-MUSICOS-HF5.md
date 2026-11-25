@@ -12,9 +12,9 @@ Data: 24/11/2026. Status: candidata de laboratório, NÃO homologada em campo.
 
 ## Integridade
 
-Plugin: StageCompanion-Plugin-0.4.39-HF5-RC4-UI4-HF5-TESTE.zip — SHA256 4b27f6de8fa55d7aaccee6a62f1d409231d86ddabba21c9103684f53acaf4b85.
-Tema: RT-Musicos-2-Estrofes-Harpa-Avisos-HF5-TESTE.spresenter-theme.json — SHA256 9a1f1039e06a3292e4aed71d6707d96e4273805fd6d672aa886eff9d3dc165dc.
-Kit de testes: StageCompanion-RT-Musicos-0.4.39-HF5-TESTE-COMPLETO.zip — SHA256 31cfc3244f40b07b944c857702e7ebd4fbad05c63eb81ae7e6bf48c5c83d0135.
+Plugin: StageCompanion-Plugin-0.4.39-HF5-RC4-UI4-HF5-TESTE.zip — SHA256 5e9167c2de6108f71511f526792d74c2efbe5bb9e51b00e0fc27780351b37208.
+Tema: RT-Musicos-2-Estrofes-Harpa-Avisos-HF5-TESTE.spresenter-theme.json — SHA256 593f73556c40245241d510b9ccbc6a15262fca53c3d024c3ed2b94e85de9def8.
+Kit de testes: StageCompanion-RT-Musicos-0.4.39-HF5-TESTE-COMPLETO.zip — SHA256 9487399e7a214e0441e361175764b66894289b2f60611fd80b44c45f16f57bcb.
 
 ## Validações realizadas
 
@@ -30,3 +30,4 @@ Checagens JSON, JS e ZIP aprovadas. Os 12 cenários existentes de regressão Set
 ## Teste mínimo
 
 Instalar plugin 0.4.39 em ambiente de teste; aplicar o novo tema somente ao RT Músicos; confirmar estrofes sem sobreposição; enviar Harpa 483 e 445, reordenar e concluir o primeiro; enviar aviso local de 5 segundos, verificar que somente músicos mostram, e Harpa retorna intacta. Repetir com pisca e retirada. Registrar captura e diagnóstico.
+Ajuste final do layout da candidata: aviso e pulso agora usam a mesma escala (0.85) e a mesma geometria base da caixa compacta da Harpa. Verificação estática e teste simulado repetidos após o ajuste. Os três hashes acima correspondem ao último ZIP exportado.
