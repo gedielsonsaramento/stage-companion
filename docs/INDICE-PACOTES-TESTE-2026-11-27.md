@@ -20,6 +20,7 @@
 
 - O ZIP HF9 foi encontrado na Biblioteca do projeto, teve integridade ZIP verificada e os três SHA-256 acima foram conferidos com os valores documentados.
 - O kit contém o ZIP do plugin, o tema HF3G, o arquivo `LEIA-PRIMEIRO-HF9.md` e o tema anterior HF3F.
+- O [tema HF3F de referência (rollback)](../themes/candidatas/RT-Musicos-HF3F-Harpa-Estrobo-Estrofes-Posicionadas-TESTE.spresenter-theme.json) também foi publicado como fonte de teste; SHA-256 verificado no kit: `7ec9727e1b76c1f906afbf9f6eb39284802d4551bddfb1c7844860536148c3a4`.
 - Consulte [instruções do teste HF9](../tests/candidatas/HF9-LEIA-PRIMEIRO.md) e [relatório da candidata HF9](CANDIDATA-0.4.43-HF9-RT-MUSICOS-MENSAGENS.md).
 - **Status de homologação no documento original:** candidato de laboratório, sem homologação confirmada no Spresenter real. Se houver aceite de campo posterior, registrar evidência e versão antes de mudar o status.
 
