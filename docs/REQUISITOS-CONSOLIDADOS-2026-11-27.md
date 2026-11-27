@@ -120,7 +120,18 @@
 - [ ] Sem internet, serviços locais e mídia local continuam funcionando quando a LAN e o servidor ativo estão disponíveis.
 - [ ] Alertas e estados não apresentam notificações invasivas nem alegam reprodução antes da confirmação.
 
-## 10. Pendências de desenho e implementação
+## 10. Atualizações pelo GitHub — prioridade do próximo pacote integrado (27/11/2026)
+
+**Decisão aprovada:** usar GitHub Releases como canal de distribuição de atualizações, sem precisar hospedar instaladores no servidor próprio da igreja. A operação local não depende do GitHub; somente a descoberta e o download de novas versões exigem internet.
+
+- **Prioridade imediata:** iniciar pelo EXE Windows (consultar versões, mostrar notas, baixar/verificar SHA-256, preparar atualização sem interromper culto). Um instalador/atualizador confiável e recuperação por rollback dependem de implementação e homologação.
+- **Etapas seguintes:** plugin Spresenter, temas de Retorno do Pastor e dos Músicos, servidor Samsung/Termux e PWA local/pública, cada qual com mecanismo compatível e testes próprios.
+- **Canais distintos:** estável e teste/pré-release, sem substituir automaticamente uma instalação estável por candidata.
+- **Proteções:** manifesto versionado, hashes e verificação de procedência, compatibilidade e dependências; backup, rollback, atualização proibida durante culto/reprodução ativa, sem reinícios surpresa, feedback visual claro e funcionamento offline na versão instalada.
+- **Estado atual:** decisão de produto registrada, **sem afirmar que atualização automática já esteja implementada**. A inclusão no próximo pacote de testes significa prioridade para um primeiro mecanismo funcional, não promessa de que todos os componentes serão atualizados automaticamente nessa mesma candidata.
+- Acompanhamento no GitHub: https://github.com/gedielsonsaramento/stage-companion/issues/7.
+
+## 11. Pendências de desenho e implementação
 
 1. Auditar código/arquivos e confirmar funcionalidades reais da versão EXE/plugin/PWA instalada — **este registro não substitui inspeção do código**.
 2. Definir player concreto (nativo EXE, navegador/PWA ou integração única), comportamento em segundo plano e limites de YouTube.
