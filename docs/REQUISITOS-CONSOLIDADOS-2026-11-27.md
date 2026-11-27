@@ -24,6 +24,20 @@
 | Servidor EXE local | Conexões, autorização, dados, sincronização, encaminhamento de comandos e monitoramento. |
 | Servidor na nuvem | Comunicação complementar conforme instalação, sem causar duplicidade de comandos. |
 
+### Implantação da igreja — Asus principal e Samsung reserva (correção de 27/11/2026)
+
+**Arquitetura-alvo aprovada:** migrar o serviço principal do Stage Companion para o dispositivo **Asus com Android 9**. O **Samsung com Android 5.1.1/Termux legacy** deverá permanecer como **backup/contingência e redundância**, não como servidor principal permanente. Essa decisão diz respeito à instalação da igreja; outras igrejas poderão operar com servidor EXE local sem os dois aparelhos.
+
+**Estado de implantação confirmado até os testes de 20–21/11/2026:** Samsung ainda atendia produção. O Asus havia sido preparado e testado para SSH, Stage Companion e inicialização via Termux:Boot, com `/health` aprovado; a replicação automática Asus↔Samsung e a troca de servidor principal **não estavam homologadas**. Portanto, *arquitetura planejada não equivale a migração concluída*.
+
+**Migração segura, por etapas:**
+1. Preservar backup dos dados/configurações do Samsung e validar estabilidade, rede, armazenamento, PWA, Chat/Links, Oportunidade/Harpa e sincronização no Asus.
+2. Transferir dados com verificação de integridade e passar a autoridade de escrita ao Asus em janela segura. Evitar dois servidores aceitando alterações independentes: prevenir divergência de listas, mensagens e comandos.
+3. Manter Samsung sincronizado em modo de espera com recuperação testada. Inicialmente, comutação de contingência **manual e controlada**; automatizar failover somente depois de comprovar detecção de falhas, prevenção de *split-brain*, reconciliação e retorno seguro ao Asus.
+4. Preservar o domínio público `adm.polegarmidiaserver.com.br` e os clientes durante transição, validando rotas e resolução sem apontar o mesmo fluxo de escrita para servidores concorrentes.
+
+**Atualização pelo GitHub nesse cenário:** o **Asus principal** deve ser tratado como primeiro alvo da atualização do servidor Android, e o **Samsung reserva** receber versões estáveis compatíveis em etapa coordenada. Ambos poderão ter mecanismo autônomo de verificação/instalação após homologação, **mas nunca atualizar os dois ao mesmo tempo** nem desligar o único servidor operacional. O atualizador deve observar status de primário/standby, culto ativo e integridade da réplica antes de cada instalação; em dúvida, adiar. O Android 9 e o Android 5.1.1 requerem testes específicos de compatibilidade e recuperação.
+
 ### Controle não é reprodução
 
 - O plugin do PC Vídeo e o EXE do PC Áudio **podem enviar comandos remotos** se autorizados.
@@ -125,7 +139,7 @@
 **Decisão aprovada:** usar GitHub Releases como canal de distribuição de atualizações, sem precisar hospedar instaladores no servidor próprio da igreja. A operação local não depende do GitHub; somente a descoberta e o download de novas versões exigem internet.
 
 - **Prioridade imediata:** iniciar pelo EXE Windows (consultar versões, mostrar notas, baixar/verificar SHA-256, preparar atualização sem interromper culto). Um instalador/atualizador confiável e recuperação por rollback dependem de implementação e homologação.
-- **Etapas seguintes:** plugin Spresenter, temas de Retorno do Pastor e dos Músicos, servidor Samsung/Termux e PWA local/pública, cada qual com mecanismo compatível e testes próprios.
+- **Etapas seguintes:** plugin Spresenter, temas de Retorno do Pastor e dos Músicos, servidor Asus/Android 9 (principal), Samsung/Termux (reserva) e PWA local/pública, cada qual com mecanismo compatível e testes próprios.
 - **Canais distintos:** estável e teste/pré-release, sem substituir automaticamente uma instalação estável por candidata.
 - **Proteções:** manifesto versionado, hashes e verificação de procedência, compatibilidade e dependências; backup, rollback, atualização proibida durante culto/reprodução ativa, sem reinícios surpresa, feedback visual claro e funcionamento offline na versão instalada.
 - **Estado atual:** decisão de produto registrada, **sem afirmar que atualização automática já esteja implementada**. A inclusão no próximo pacote de testes significa prioridade para um primeiro mecanismo funcional, não promessa de que todos os componentes serão atualizados automaticamente nessa mesma candidata.
