@@ -9,6 +9,8 @@ A solução combina **plugin Spresenter + servidor Windows + PWA para celular + 
 
 > **Importante (24/11/2026):** este GitHub ainda apresenta o código **histórico 08G-C3 / plugin 0.3.56**. A base **0.4.37** testada em campo está catalogada, mas **não deve ser presumida neste fonte**. Veja [baseline aprovada](docs/BASELINE-APROVADA-2026-11-24.md), [pendências de interface](docs/PLANO-UI-PENDENCIAS-2026-11-24.md) e [modos local/online](docs/MODOS-LOCAL-ONLINE.md).
 
+> **Documentação nova — 27/11/2026:** veja [requisitos consolidados do Stage Companion](docs/REQUISITOS-CONSOLIDADOS-2026-11-27.md) e [índice de pacotes de teste HF9/HF10](docs/INDICE-PACOTES-TESTE-2026-11-27.md). Os arquivos-fonte de teste publicados não são uma Release homologada. **Os ZIPs recentes ainda não estão disponíveis como download neste GitHub.**
+
 ## Versão atual
 
 | Componente | Versão |
